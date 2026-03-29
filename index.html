@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reviscale — Visibilité Google Business Profile pour les entreprises locales</title>
+  <meta name="description" content="Reviscale accompagne les entreprises locales dans l'optimisation de leur présence sur Google Business Profile. Diagnostic personnalisé, approche structurée, résultats mesurables." />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:title" content="Reviscale — Présence Google Business Profile" />
+  <meta property="og:description" content="Accompagnement structuré pour améliorer votre visibilité locale sur Google. Diagnostic gratuit, sans engagement." />
+  <meta property="og:type" content="website" />
+  <link rel="canonical" href="https://reviscale.com" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;1,9..144,400;1,9..144,600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet" />
+  <style>
+/* RESET */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+/* TOKENS */
+:root{
+  --ink:#0c0c0b;--ink-80:#2a2a28;--ink-50:#5e5e5a;
+  --ink-30:#8c8c88;--ink-10:#e6e6e2;--ink-05:#f2f2ee;
+  --paper:#ffffff;--paper-warm:#fafaf7;
+  --gb:#4285F4;--gr:#EA4335;--gy:#FBBC04;--gg:#34A853;
+  --gb-t:rgba(66,133,244,.08);--gr-t:rgba(234,67,53,.08);
+  --gy-t:rgba(251,188,4,.1);--gg-t:rgba(52,168,83,.08);
+  --fh:'Fraunces',Georgia,serif;--fb:'DM Sans',system-ui,-apple-system,sans-serif;
+  --nh:70px;
+  --rxs:4px;--rsm:9px;--rmd:16px;--rlg:24px;--rxl:36px;--rfu:999px;
+  --sc:0 1px 3px rgba(0,0,0,.04),0 8px 32px rgba(0,0,0,.07),0 24px 64px rgba(0,0,0,.05);
+  --ss:0 1px 3px rgba(0,0,0,.05),0 2px 8px rgba(0,0,0,.04);
+  --eo:cubic-bezier(.22,1,.36,1);
+}
+
+html{scroll-behavior:smooth;font-size:16px;-webkit-text-size-adjust:100%}
+body{font-family:var(--fb);background:var(--paper);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;overflow-x:hidden}
+img{display:block;max-width:100%}
+::selection{background:rgba(66,133,244,.15)}
+
+/* NAV */
+.nav{position:fixed;inset:0 0 auto;z-index:900;height:var(--nh);background:rgba(255,255,255,.88);backdrop-filter:blur(24px) saturate(200%);-webkit-backdrop-filter:blur(24px) saturate(200%);border-bottom:1px solid rgba(0,0,0,.055);transition:box-shadow .4s var(--eo)}
+.nav.scrolled{box-shadow:0 4px 32px rgba(0,0,0,.06)}
+.nav-i{max-width:1200px;margin:0 auto;padding:0 48px;height:100%;display:flex;align-items:center;justify-content:space-between}
+.logo{font-family:var(--fh);font-size:22px;font-weight:600;letter-spacing:-.5px;color:var(--ink);text-decoration:none;user-select:none}
+.logo-b{color:var(--gb)}
+.nav-links{display:flex;align-items:center;gap:36px;list-style:none}
+.nav-links a{font-size:14px;font-weight:500;color:var(--ink-50);text-decoration:none;letter-spacing:.01em;transition:color .2s;position:relative;padding-bottom:2px}
+.nav-links a::after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:1.5px;background:var(--ink);transform:scaleX(0);transform-origin:left;transition:transform .25s var(--eo)}
+.nav-links a:hover{color:var(--ink)}
+.nav-links a:hover::after{transform:scaleX(1)}
+.nav-cta{font-family:var(--fb);font-size:13.5px;font-weight:600;color:var(--paper);background:var(--ink);padding:10px 24px;border-radius:var(--rsm);text-decoration:none;border:1.5px solid var(--ink);transition:background .2s,transform .15s var(--eo);white-space:nowrap}
+.nav-cta:hover{background:var(--ink-80);transform:translateY(-1px)}
+.nav-cta:focus-visible{outline:3px solid var(--gb);outline-offset:3px}
+.burger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:8px;margin:-8px}
+.burger span{display:block;width:22px;height:1.5px;background:var(--ink);border-radius:2px;transition:all .3s var(--eo)}
+
+/* HERO */
+.hero-wrap{padding-top:var(--nh);min-height:100svh;display:flex;align-items:center;position:relative;overflow:hidden}
+.hero-wrap::before{content:'';position:absolute;top:-20%;right:-10%;width:65vw;height:65vw;max-width:900px;max-height:900px;border-radius:50%;background:radial-gradient(circle,rgba(66,133,244,.055) 0%,transparent 70%);pointer-events:none}
+.hero{max-width:1200px;margin:0 auto;padding:100px 48px 96px;display:grid;grid-template-columns:1fr 1fr;gap:88px;align-items:center;width:100%;position:relative}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-30);margin-bottom:28px}
+.epulse{width:7px;height:7px;border-radius:50%;background:var(--gg);flex-shrink:0;animation:lp 2.4s ease-in-out infinite}
+@keyframes lp{0%{box-shadow:0 0 0 0 rgba(52,168,83,.35)}60%{box-shadow:0 0 0 7px rgba(52,168,83,0)}100%{box-shadow:0 0 0 0 rgba(52,168,83,0)}}
+h1.hero-h1{font-family:var(--fh);font-size:clamp(42px,4.8vw,66px);font-weight:400;line-height:1.06;letter-spacing:-1.5px;color:var(--ink);margin-bottom:24px}
+h1.hero-h1 em{font-style:italic;color:var(--gb)}
+.hero-sub{font-size:17px;line-height:1.74;color:var(--ink-50);font-weight:300;max-width:440px;margin-bottom:16px}
+.hero-quote{font-size:13.5px;line-height:1.7;color:var(--ink-30);font-style:italic;max-width:420px;margin-bottom:44px;padding-left:14px;border-left:2px solid var(--ink-10)}
+.hero-ctas{display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin-bottom:48px}
+
+/* BUTTONS */
+.btn-p{display:inline-flex;align-items:center;gap:8px;font-family:var(--fb);font-size:14px;font-weight:600;color:var(--paper);background:var(--ink);padding:14px 28px;border-radius:var(--rsm);text-decoration:none;border:1.5px solid var(--ink);letter-spacing:.01em;transition:background .2s,transform .18s var(--eo),box-shadow .2s}
+.btn-p:hover{background:var(--ink-80);border-color:var(--ink-80);transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.14)}
+.btn-p:focus-visible{outline:3px solid var(--gb);outline-offset:3px}
+.btn-g{display:inline-flex;align-items:center;gap:7px;font-size:14px;font-weight:500;color:var(--ink-50);text-decoration:none;transition:color .2s;letter-spacing:.01em}
+.btn-g svg{transition:transform .2s var(--eo)}
+.btn-g:hover{color:var(--ink)}
+.btn-g:hover svg{transform:translateX(4px)}
+
+/* TRUST BAR */
+.hero-trust{display:flex;align-items:center;gap:24px;padding-top:32px;border-top:1px solid var(--ink-10);flex-wrap:wrap}
+.trust-sig{display:flex;align-items:center;gap:7px;font-size:12.5px;color:var(--ink-30)}
+.trust-sig svg{flex-shrink:0}
+
+/* GOOGLE UI MOCK */
+.hero-vis{display:flex;flex-direction:column;gap:10px}
+.g-sb{background:var(--paper);border:1px solid rgba(0,0,0,.12);border-radius:var(--rfu);padding:11px 20px;display:flex;align-items:center;gap:12px;box-shadow:var(--ss)}
+.g-sb-txt{font-size:14px;color:var(--ink-50);flex:1;letter-spacing:.01em}
+.g-sb-btn{width:30px;height:30px;border-radius:50%;background:var(--gb);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.g-pack{background:var(--paper);border:1px solid var(--ink-10);border-radius:var(--rlg);overflow:hidden;box-shadow:var(--sc)}
+.g-map{height:116px;background:linear-gradient(135deg,#e8f0fe 0%,#dce8fd 35%,#d4e7fb 55%,#c8e6c9 100%);position:relative;overflow:hidden}
+.g-map::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.55) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.55) 1px,transparent 1px);background-size:26px 26px}
+.g-map::after{content:'';position:absolute;top:38%;left:0;right:0;height:8px;background:rgba(255,255,255,.65)}
+.g-pin{position:absolute;top:50%;left:50%;transform:translate(-50%,-62%);display:flex;flex-direction:column;align-items:center}
+.g-pin-h{width:20px;height:20px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);background:var(--gr);border:2.5px solid var(--paper);box-shadow:0 3px 12px rgba(234,67,53,.4)}
+.g-pin-pulse{position:absolute;top:50%;left:50%;width:40px;height:40px;border-radius:50%;transform:translate(-50%,-50%);background:rgba(234,67,53,.12);animation:pp 2.2s ease-out infinite}
+@keyframes pp{0%{transform:translate(-50%,-50%) scale(.5);opacity:.8}100%{transform:translate(-50%,-50%) scale(1.8);opacity:0}}
+.g-biz{padding:18px 20px 14px}
+.g-biz-head{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:10px}
+.g-biz-name{font-size:15.5px;font-weight:700;color:var(--ink);letter-spacing:-.2px;line-height:1.3}
+.g-biz-type{font-size:12px;color:var(--ink-50);margin-top:1px}
+.g-biz-logo{width:36px;height:36px;border-radius:8px;background:var(--ink-05);border:1px solid var(--ink-10);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.g-stars{display:flex;align-items:center;gap:5px;margin-bottom:11px}
+.g-stars-row{display:flex;gap:1px}
+.g-star{font-size:12.5px;color:var(--gy)}
+.g-score{font-size:13px;font-weight:700;color:var(--ink)}
+.g-cnt{font-size:11.5px;color:var(--gb)}
+.g-details{display:flex;flex-direction:column;gap:6px;margin-bottom:14px}
+.g-det{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--ink-50)}
+.g-det svg{flex-shrink:0;color:var(--ink-30)}
+.open-now{color:var(--gg);font-weight:600}
+.g-acts{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;padding-top:12px;border-top:1px solid var(--ink-10)}
+.g-act{display:flex;flex-direction:column;align-items:center;gap:4px;padding:9px 4px;background:var(--ink-05);border:1px solid var(--ink-10);border-radius:var(--rxs);font-size:10.5px;font-weight:600;color:var(--gb)}
+.g-nearby{background:var(--paper);border:1px solid var(--ink-10);border-radius:var(--rmd);padding:11px 16px;display:flex;align-items:center;justify-content:space-between;box-shadow:var(--ss)}
+.g-nearby-txt{font-size:12px;color:var(--ink-50)}
+.g-chips{display:flex;gap:5px}
+.g-chip{font-size:10.5px;font-weight:600;color:var(--ink-50);background:var(--ink-05);border:1px solid var(--ink-10);padding:3px 9px;border-radius:var(--rfu)}
+
+/* LAYOUT */
+.wrap{max-width:1200px;margin:0 auto;padding:0 48px}
+.sec{padding:120px 48px}
+.sec-alt{background:var(--paper-warm)}
+.sec-dark{background:var(--ink)}
+.sec-label{display:inline-flex;align-items:center;gap:8px;font-size:10.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-30);margin-bottom:20px}
+.sec-dot{width:5px;height:5px;border-radius:50%;background:var(--ink-10)}
+.g-stripe{display:flex;width:36px;height:3px;border-radius:2px;overflow:hidden;margin-bottom:32px}
+.g-stripe span{flex:1}
+.gs1{background:var(--gb)}.gs2{background:var(--gr)}.gs3{background:var(--gy)}.gs4{background:var(--gg)}
+h2.h2{font-family:var(--fh);font-size:clamp(32px,3.5vw,52px);font-weight:400;line-height:1.1;letter-spacing:-1.2px;color:var(--ink);margin-bottom:20px}
+h2.h2 em{font-style:italic;color:var(--gb)}
+h2.h2-lt{color:var(--paper)}
+.lead{font-size:17px;line-height:1.76;color:var(--ink-50);font-weight:300;max-width:560px}
+.lead-lt{color:rgba(255,255,255,.5)}
+
+/* PROBLEM SECTION */
+.prob-grid{display:grid;grid-template-columns:1fr 1fr;gap:96px;align-items:start;margin-top:72px}
+.timeline{display:flex;flex-direction:column}
+.tl-item{display:flex;gap:22px;position:relative}
+.tl-item:not(:last-child)::after{content:'';position:absolute;left:19px;top:42px;bottom:-14px;width:1px;background:linear-gradient(to bottom,var(--ink-10) 0%,transparent 100%)}
+.tl-n{width:40px;height:40px;border-radius:50%;background:var(--paper);border:1.5px solid var(--ink-10);display:flex;align-items:center;justify-content:center;font-size:12.5px;font-weight:700;color:var(--ink-50);flex-shrink:0;position:relative;z-index:1}
+.tl-body{padding:8px 0 48px}
+.tl-title{font-size:15px;font-weight:600;color:var(--ink);margin-bottom:8px;letter-spacing:-.1px}
+.tl-text{font-size:14px;line-height:1.7;color:var(--ink-50);font-weight:300}
+.insight{background:var(--paper);border:1px solid var(--ink-10);border-radius:var(--rxl);padding:44px;box-shadow:var(--sc)}
+.insight-h{font-family:var(--fh);font-size:22px;font-weight:400;color:var(--ink);margin-bottom:16px;letter-spacing:-.3px;line-height:1.3}
+.insight-p{font-size:14.5px;line-height:1.76;color:var(--ink-50);font-weight:300;margin-bottom:14px}
+.insight-callout{margin-top:24px;padding:16px 20px;background:var(--ink-05);border-radius:var(--rmd);font-size:13px;line-height:1.65;color:var(--ink-50);font-style:italic;border-left:3px solid var(--gb)}
+.insight-div{height:1px;background:var(--ink-10);margin:28px 0}
+.insight-note{display:flex;gap:13px;align-items:flex-start}
+.insight-icon{width:34px;height:34px;border-radius:9px;background:var(--gb-t);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.insight-nt{font-size:13px;line-height:1.66;color:var(--ink-50);font-weight:300}
+
+/* CARD GRID */
+.card-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:72px}
+.feat-card{background:var(--paper);border:1px solid var(--ink-10);border-radius:var(--rlg);padding:36px;transition:box-shadow .25s var(--eo),border-color .25s,transform .25s var(--eo)}
+.feat-card:hover{box-shadow:var(--sc);transform:translateY(-3px)}
+.feat-icon{width:42px;height:42px;border-radius:11px;display:flex;align-items:center;justify-content:center;margin-bottom:22px}
+.ic-b{background:var(--gb-t);color:var(--gb)}.ic-r{background:var(--gr-t);color:var(--gr)}.ic-g{background:var(--gg-t);color:var(--gg)}.ic-y{background:var(--gy-t);color:#8a6c00}
+.feat-title{font-size:15.5px;font-weight:600;color:var(--ink);margin-bottom:10px;letter-spacing:-.1px}
+.feat-text{font-size:13.5px;line-height:1.7;color:var(--ink-50);font-weight:300}
+
+/* APPROACH */
+.appr-inner{max-width:1200px;margin:0 auto;padding:120px 48px}
+.appr-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:72px;border-radius:var(--rxl);overflow:hidden;border:1px solid rgba(255,255,255,.06)}
+.step-card{padding:48px;background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.055);transition:background .25s}
+.step-card:hover{background:rgba(255,255,255,.055)}
+.step-n{font-size:10px;font-weight:700;letter-spacing:.14em;color:rgba(255,255,255,.2);margin-bottom:20px}
+.step-bar{width:30px;height:3px;border-radius:2px;margin-bottom:22px}
+.sb-b{background:var(--gb)}.sb-r{background:var(--gr)}.sb-g{background:var(--gg)}.sb-y{background:var(--gy)}
+.step-title{font-size:18px;font-weight:600;color:var(--paper);margin-bottom:14px;letter-spacing:-.2px}
+.step-text{font-size:14px;line-height:1.74;color:rgba(255,255,255,.42);font-weight:300}
+
+/* BENEFITS */
+.ben-layout{display:grid;grid-template-columns:1fr 1fr;gap:96px;align-items:center;margin-top:72px}
+.ben-list{display:flex;flex-direction:column;gap:30px}
+.ben-item{display:flex;gap:16px;align-items:flex-start}
+.ben-chk{width:22px;height:22px;border-radius:50%;background:var(--gg-t);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.ben-txt strong{display:block;font-size:15px;font-weight:600;color:var(--ink);margin-bottom:5px;letter-spacing:-.1px}
+.ben-txt p{font-size:13.5px;line-height:1.7;color:var(--ink-50);font-weight:300}
+.pcard{background:var(--paper);border:1px solid var(--ink-10);border-radius:var(--rxl);padding:36px;box-shadow:var(--sc)}
+.pcard-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:30px}
+.pcard-title{font-size:14px;font-weight:600;color:var(--ink-80)}
+.pcard-badge{font-size:10.5px;font-weight:700;letter-spacing:.04em;color:var(--gg);background:var(--gg-t);padding:4px 11px;border-radius:var(--rfu)}
+.pcard-row{display:flex;align-items:center;margin-bottom:16px}
+.pcard-lbl{display:flex;align-items:center;gap:7px;font-size:12.5px;color:var(--ink-50);min-width:164px;flex-shrink:0}
+.pd{width:7px;height:7px;border-radius:50%;flex-shrink:0}
+.pd-b{background:var(--gb)}.pd-r{background:var(--gr)}.pd-g{background:var(--gg)}
+.pcard-track{flex:1;height:5px;background:var(--ink-10);border-radius:3px;overflow:hidden;margin:0 12px}
+.pcard-fill{height:100%;border-radius:3px;animation:tg 1.6s var(--eo) forwards;transform-origin:left;transform:scaleX(0)}
+@keyframes tg{to{transform:scaleX(1)}}
+.pf-b{background:var(--gb);width:72%}.pf-r{background:var(--gr);width:58%}.pf-g{background:var(--gg);width:84%}
+.pcard-val{font-size:12px;font-weight:700;color:var(--ink-50);min-width:28px;text-align:right}
+.pcard-note{margin-top:26px;padding-top:20px;border-top:1px solid var(--ink-10);font-size:11.5px;color:var(--ink-30);line-height:1.65}
+
+/* CONTACT */
+.con-grid{display:grid;grid-template-columns:1fr 1fr;gap:96px;align-items:start}
+.con-sigs{margin-top:44px;display:flex;flex-direction:column;gap:16px}
+.con-sig{display:flex;align-items:center;gap:11px;font-size:14px;color:var(--ink-50)}
+.con-sig svg{flex-shrink:0;color:var(--ink-30)}
+.form-card{background:var(--paper);border:1px solid var(--ink-10);border-radius:var(--rxl);padding:48px;box-shadow:var(--sc)}
+.form-card-title{font-family:var(--fh);font-size:20px;font-weight:400;color:var(--ink);margin-bottom:32px;letter-spacing:-.3px}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.fg{display:flex;flex-direction:column;gap:6px}
+.fg-full{grid-column:1/-1}
+.fl{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-50)}
+.fl-req::after{content:' *';color:var(--gr)}
+.fi,.ft{font-family:var(--fb);font-size:14px;color:var(--ink);background:var(--ink-05);border:1.5px solid var(--ink-10);border-radius:var(--rsm);padding:12px 16px;outline:none;width:100%;-webkit-appearance:none;transition:border-color .2s,background .2s,box-shadow .2s}
+.fi::placeholder,.ft::placeholder{color:var(--ink-30)}
+.fi:focus,.ft:focus{border-color:var(--gb);background:var(--paper);box-shadow:0 0 0 3px rgba(66,133,244,.1)}
+.ft{resize:vertical;min-height:96px;line-height:1.6}
+.form-foot{margin-top:24px;display:flex;flex-direction:column;gap:14px}
+.btn-sub{display:flex;align-items:center;justify-content:center;gap:8px;font-family:var(--fb);font-size:14.5px;font-weight:600;color:var(--paper);background:var(--ink);padding:16px 28px;border-radius:var(--rsm);border:1.5px solid var(--ink);cursor:pointer;width:100%;letter-spacing:.01em;transition:background .2s,transform .18s var(--eo),box-shadow .2s}
+.btn-sub:hover{background:var(--ink-80);transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.14)}
+.btn-sub:focus-visible{outline:3px solid var(--gb);outline-offset:3px}
+.form-legal{font-size:11.5px;color:var(--ink-30);text-align:center;line-height:1.65}
+.form-legal a{color:var(--ink-50);text-decoration:underline;text-underline-offset:2px}
+.form-legal a:hover{color:var(--ink)}
+.form-ok{display:none;text-align:center;padding:56px 24px}
+.ok-ring{width:64px;height:64px;border-radius:50%;background:var(--gg-t);display:flex;align-items:center;justify-content:center;margin:0 auto 22px}
+.ok-h{font-family:var(--fh);font-size:26px;font-weight:400;color:var(--ink);margin-bottom:12px;letter-spacing:-.4px}
+.ok-p{font-size:15px;color:var(--ink-50);line-height:1.7;font-weight:300}
+
+/* FOOTER */
+.footer{background:var(--paper);border-top:1px solid var(--ink-10)}
+.footer-top{max-width:1200px;margin:0 auto;padding:72px 48px 56px;display:grid;grid-template-columns:1.8fr 1fr 1fr;gap:64px}
+.footer-logo{font-family:var(--fh);font-size:20px;font-weight:600;letter-spacing:-.4px;color:var(--ink);text-decoration:none;display:block;margin-bottom:14px}
+.footer-logo-b{color:var(--gb)}
+.footer-tag{font-size:13.5px;color:var(--ink-30);line-height:1.65;margin-bottom:20px;font-weight:300}
+.footer-email{display:inline-flex;align-items:center;gap:6px;font-size:13.5px;color:var(--gb);text-decoration:none;transition:opacity .2s}
+.footer-email:hover{opacity:.75;text-decoration:underline;text-underline-offset:2px}
+.footer-col-h{font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-30);margin-bottom:18px}
+.footer-links{display:flex;flex-direction:column;gap:12px}
+.footer-links a{font-size:14px;color:var(--ink-50);text-decoration:none;transition:color .2s;width:fit-content}
+.footer-links a:hover{color:var(--ink)}
+.footer-bot{border-top:1px solid var(--ink-10);padding:22px 48px;max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.footer-copy{font-size:12.5px;color:var(--ink-30)}
+.footer-country{display:flex;align-items:center;gap:6px;font-size:12.5px;color:var(--ink-30)}
+
+/* SCROLL REVEAL */
+.sr{opacity:0;transform:translateY(20px);transition:opacity .6s var(--eo),transform .6s var(--eo)}
+.sr.visible{opacity:1;transform:translateY(0)}
+.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}.d4{transition-delay:.32s}
+
+/* RESPONSIVE */
+@media(max-width:1024px){
+  .hero{grid-template-columns:1fr;gap:56px;padding:80px 48px 72px}
+  .hero-vis{display:none}
+  .prob-grid,.ben-layout,.con-grid{grid-template-columns:1fr;gap:56px}
+  .appr-grid{grid-template-columns:1fr}
+  .card-grid{grid-template-columns:1fr 1fr}
+  .footer-top{grid-template-columns:1fr 1fr;gap:40px}
+}
+@media(max-width:768px){
+  :root{--nh:64px}
+  .nav-i{padding:0 24px}
+  .nav-links{display:none}
+  .nav-links.open{display:flex;flex-direction:column;position:absolute;top:var(--nh);left:0;right:0;background:rgba(255,255,255,.96);backdrop-filter:blur(20px);border-bottom:1px solid var(--ink-10);padding:20px 24px 28px;gap:18px;box-shadow:0 8px 32px rgba(0,0,0,.08)}
+  .nav-links.open a::after{display:none}
+  .burger{display:flex}
+  .sec,.sec-alt{padding:80px 24px}
+  .appr-inner{padding:80px 24px}
+  .card-grid{grid-template-columns:1fr}
+  .form-grid{grid-template-columns:1fr}
+  .form-card{padding:28px 24px}
+  .insight{padding:28px 24px}
+  .step-card{padding:32px 24px}
+  .footer-top{grid-template-columns:1fr;padding:48px 24px 36px;gap:32px}
+  .footer-bot{padding:18px 24px;flex-direction:column;align-items:flex-start}
+  .hero{padding:64px 24px 56px}
+  h1.hero-h1{font-size:38px}
+  .con-grid{gap:40px}
+  .wrap{padding:0 24px}
+}
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="nav" id="nav" role="banner">
+  <div class="nav-i">
+    <a href="index.html" class="logo">Revi<span class="logo-b">scale</span></a>
+    <ul class="nav-links" id="navMenu" role="list">
+      <li><a href="#comment">Comment ça marche</a></li>
+      <li><a href="#approche">Notre approche</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div style="display:flex;align-items:center;gap:12px">
+      <a href="#contact" class="nav-cta">Diagnostic gratuit</a>
+      <button class="burger" id="navBurger" aria-label="Ouvrir le menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<div class="hero-wrap" role="main">
+  <div class="hero">
+    <div>
+      <div class="hero-eyebrow"><span class="epulse"></span>Google Business Profile · Visibilité locale</div>
+      <h1 class="hero-h1">Votre présence Google,<br><em>structurée</em> pour<br>générer des contacts.</h1>
+      <p class="hero-sub">Avant de vous appeler, vos futurs clients vous cherchent sur Google. Ce qu'ils trouvent — ou ne trouvent pas — influence leur décision en quelques secondes.</p>
+      <p class="hero-quote">"Lorsqu'un prospect recherche un service sur Google, le choix se fait en quelques secondes — souvent en faveur des entreprises les plus visibles."</p>
+      <div class="hero-ctas">
+        <a href="#contact" class="btn-p">Demander un diagnostic gratuit <svg width="15" height="15" viewBox="0 0 15 15" fill="none" aria-hidden="true"><path d="M3 7.5h9M9 4l3.5 3.5L9 11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a href="#comment" class="btn-g">Comment ça marche <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M3 7h8M8 4l3 3-3 3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+      <div class="hero-trust">
+        <div class="trust-sig">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M3.5 7l2.5 2.5 4.5-5" stroke="#34A853" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="7" cy="7" r="5.5" stroke="#8c8c88" stroke-width="1.2"/></svg>
+          Diagnostic sans engagement
+        </div>
+        <div class="trust-sig">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><circle cx="7" cy="7" r="5.5" stroke="#8c8c88" stroke-width="1.2"/><path d="M7 4.5v2.8l1.8 1.8" stroke="#8c8c88" stroke-width="1.2" stroke-linecap="round"/></svg>
+          Réponse sous 24h ouvrées
+        </div>
+        <div class="trust-sig">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><circle cx="7" cy="5" r="2.5" stroke="#8c8c88" stroke-width="1.2"/><path d="M2 12.5c0-2.76 2.24-5 5-5s5 2.24 5 5" stroke="#8c8c88" stroke-width="1.2" stroke-linecap="round"/></svg>
+          Accompagnement personnalisé
+        </div>
+        <div class="trust-sig">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M7 1L1.5 3.5v4c0 3 2.2 5.8 5.5 6.5C10.3 13.3 12.5 10.5 12.5 7.5v-4L7 1z" stroke="#8c8c88" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Entreprise basée en France
+        </div>
+      </div>
+    </div>
+
+    <!-- Google UI mock -->
+    <div class="hero-vis" aria-hidden="true">
+      <div class="g-sb">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="7" cy="7" r="4.5" stroke="#4285F4" stroke-width="1.5"/><path d="M11 11l2.5 2.5" stroke="#4285F4" stroke-width="1.5" stroke-linecap="round"/></svg>
+        <span class="g-sb-txt">plombier paris 15ème disponible</span>
+        <div class="g-sb-btn"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><rect x="4" y="1" width="4" height="6" rx="2" stroke="white" stroke-width="1.2"/><path d="M2 6.5c0 2.2 1.8 4 4 4s4-1.8 4-4" stroke="white" stroke-width="1.2" stroke-linecap="round"/><line x1="6" y1="10.5" x2="6" y2="12" stroke="white" stroke-width="1.2" stroke-linecap="round"/></svg></div>
+      </div>
+      <div class="g-pack">
+        <div class="g-map">
+          <div class="g-pin">
+            <div class="g-pin-pulse"></div>
+            <div class="g-pin-h"></div>
+          </div>
+        </div>
+        <div class="g-biz">
+          <div class="g-biz-head">
+            <div><div class="g-biz-name">Plomberie Martin</div><div class="g-biz-type">Plombier · Paris 15e</div></div>
+            <div class="g-biz-logo">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect width="7" height="7" x="1" y="1" rx="1.5" fill="#4285F4"/><rect width="7" height="7" x="10" y="1" rx="1.5" fill="#EA4335"/><rect width="7" height="7" x="1" y="10" rx="1.5" fill="#34A853"/><rect width="7" height="7" x="10" y="10" rx="1.5" fill="#FBBC04"/></svg>
+            </div>
+          </div>
+          <div class="g-stars">
+            <div class="g-stars-row"><span class="g-star">★</span><span class="g-star">★</span><span class="g-star">★</span><span class="g-star">★</span><span class="g-star">★</span></div>
+            <span class="g-score">4.8</span><span class="g-cnt">(114 avis)</span>
+          </div>
+          <div class="g-details">
+            <div class="g-det"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="5" r="2" stroke="currentColor" stroke-width="1.2"/><path d="M6 1C3.8 1 2 2.8 2 5c0 2.8 4 7 4 7s4-4.2 4-7c0-2.2-1.8-4-4-4z" stroke="currentColor" stroke-width="1.2"/></svg>15 Rue de la Convention, 75015 Paris</div>
+            <div class="g-det"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="4.5" stroke="currentColor" stroke-width="1.2"/><path d="M6 3.5V6l1.5 1.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg><span class="open-now">Ouvert</span>&nbsp;· Ferme à 19h00</div>
+            <div class="g-det"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 2.5c.4-.7 1.1-1 1.7-.6.7.4 2.6 2.4 2.9 3 .3.7 0 1.4-.6 1.8l-.7.4c.7 1.3 1.9 2.3 2.9 2.6l.4-1c.3-.7 1-.9 1.7-.6.4.3.4 1 0 1.7-.8 1-2.2 1.6-3.5 1-2.6-1.3-4.7-3.8-5.2-6-.4-1.4.1-2.7.9-3.3z" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>Intervention urgente disponible</div>
+          </div>
+          <div class="g-acts">
+            <div class="g-act"><svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2 2.5c.4-.7 1.1-1 1.7-.6.7.4 2.6 2.4 2.9 3 .3.7 0 1.4-.6 1.8l-.7.4c.7 1.3 1.9 2.3 2.9 2.6l.4-1c.3-.7 1-.9 1.7-.6.4.3.4 1 0 1.7-.8 1-2.2 1.6-3.5 1-2.6-1.3-4.7-3.8-5.2-6-.4-1.4.1-2.7.9-3.3z" stroke="#4285F4" stroke-width="1.2" stroke-linecap="round"/></svg>Appeler</div>
+            <div class="g-act"><svg width="13" height="13" viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="5.5" r="2" stroke="#4285F4" stroke-width="1.2"/><path d="M6.5 1C4.3 1 2.5 2.8 2.5 5.5c0 2.8 4 7 4 7s4-4.2 4-7C10.5 2.8 8.7 1 6.5 1z" stroke="#4285F4" stroke-width="1.2"/></svg>Itinéraire</div>
+            <div class="g-act"><svg width="13" height="13" viewBox="0 0 13 13" fill="none"><rect x="1.5" y="3" width="10" height="7" rx="1.5" stroke="#4285F4" stroke-width="1.2"/><path d="M1.5 5l5 3.5 5-3.5" stroke="#4285F4" stroke-width="1.2"/></svg>Site web</div>
+          </div>
+        </div>
+      </div>
+      <div class="g-nearby"><span class="g-nearby-txt">Résultats pour Paris 15e · Plombiers</span><div class="g-chips"><span class="g-chip">Horaires</span><span class="g-chip">Disponible</span></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION: PROBLÈME -->
+<section class="sec sec-alt" id="comment">
+  <div class="wrap">
+    <div class="sec-label"><span class="sec-dot"></span>Ce qui se passe avant l'appel</div>
+    <h2 class="h2">Votre client décide<br>avant de vous contacter.</h2>
+    <p class="lead">Le parcours d'un client local sur Google est rapide, presque instinctif. Comprendre ce parcours, c'est comprendre où se joue votre visibilité.</p>
+    <div class="prob-grid">
+      <div class="timeline">
+        <div class="tl-item sr"><div class="tl-n">1</div><div class="tl-body"><div class="tl-title">Il formule sa recherche</div><p class="tl-text">Votre client saisit une requête précise — "plombier disponible Paris 15", "cabinet comptable proche de moi". Il cherche une solution concrète, pas une vitrine.</p></div></div>
+        <div class="tl-item sr d1"><div class="tl-n">2</div><div class="tl-body"><div class="tl-title">Google affiche les fiches locales</div><p class="tl-text">En haut de la page, Google présente une sélection de fiches d'entreprises : nom, note, horaires, distance. Cette zone capte l'essentiel de l'attention.</p></div></div>
+        <div class="tl-item sr d2"><div class="tl-n">3</div><div class="tl-body"><div class="tl-title">La décision se prend en quelques secondes</div><p class="tl-text">Il clique sur l'une des premières fiches — rarement au-delà. La note, les horaires, les photos et la cohérence générale influencent son choix avant toute conversation.</p></div></div>
+        <div class="tl-item sr d3"><div class="tl-n">4</div><div class="tl-body"><div class="tl-title">Il contacte directement depuis Google</div><p class="tl-text">Il appelle, demande un itinéraire ou envoie un message — directement depuis Google, sans passer par votre site web, sans délai supplémentaire.</p></div></div>
+      </div>
+      <div class="insight sr d1">
+        <div class="insight-h">La question à se poser</div>
+        <p class="insight-p">Quand quelqu'un cherche vos services dans votre zone, apparaissez-vous parmi les premiers résultats ? Et si vous apparaissez, votre fiche donne-t-elle envie de vous contacter ?</p>
+        <p class="insight-p">Une fiche incomplète, avec des horaires inexacts ou peu d'avis récents, inspire moins confiance qu'une fiche structurée et maintenue à jour.</p>
+        <div class="insight-callout">"La différence ne se fait pas toujours sur la qualité du service, mais sur ce qui est visible au bon moment."</div>
+        <div class="insight-div"></div>
+        <div class="insight-note">
+          <div class="insight-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="6" stroke="#4285F4" stroke-width="1.3"/><path d="M8 7v4M8 5.5h.01" stroke="#4285F4" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+          <p class="insight-nt">Google Business Profile est l'une des surfaces de visibilité locale les plus directes disponibles. Son optimisation est accessible, structurée et ses effets sont mesurables.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION: GBP -->
+<section class="sec" id="gbp">
+  <div class="wrap">
+    <div class="sec-label"><span class="sec-dot"></span>Google Business Profile</div>
+    <div class="g-stripe"><span class="gs1"></span><span class="gs2"></span><span class="gs3"></span><span class="gs4"></span></div>
+    <h2 class="h2">Une fiche qui représente<br>votre entreprise <em>en permanence</em>.</h2>
+    <p class="lead">Google Business Profile est la carte d'identité de votre entreprise sur Google Maps et dans les résultats de recherche locale. Elle fonctionne 24h/24, indépendamment de votre site web.</p>
+    <div class="card-grid">
+      <div class="feat-card sr"><div class="feat-icon ic-b"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="8.5" r="3.5" stroke="currentColor" stroke-width="1.5"/><path d="M10 2C6.96 2 4 5.13 4 8.5c0 4.38 6 10 6 10s6-5.62 6-10C16 5.13 13.04 2 10 2z" stroke="currentColor" stroke-width="1.5"/></svg></div><div class="feat-title">Visibilité locale ciblée</div><p class="feat-text">Votre entreprise apparaît directement dans les recherches locales et sur Google Maps pour les personnes situées dans votre zone géographique.</p></div>
+      <div class="feat-card sr d1"><div class="feat-icon ic-r"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><rect x="3" y="4" width="14" height="13" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M7 4V2.5M13 4V2.5M3 8h14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div><div class="feat-title">Informations précises et à jour</div><p class="feat-text">Horaires, adresse, téléphone, services : des informations exactes réduisent les hésitations et facilitent le passage à l'action.</p></div>
+      <div class="feat-card sr d2"><div class="feat-icon ic-g"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10l4 4 8-8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="feat-title">Crédibilité immédiate</div><p class="feat-text">La complétude de la fiche, les photos soignées et les avis récents contribuent directement à la perception de sérieux de votre entreprise.</p></div>
+      <div class="feat-card sr"><div class="feat-icon ic-y"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M10 2l2.1 6.3H18l-5.1 3.7 1.9 6.1L10 14.3l-4.9 3.8 2-6.1L2 8.3h5.9L10 2z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg></div><div class="feat-title">Réputation et avis clients</div><p class="feat-text">La gestion proactive des avis est un levier de confiance direct. Répondre avec soin témoigne de l'attention portée à la relation client.</p></div>
+      <div class="feat-card sr d1"><div class="feat-icon ic-b"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M3 5h14v10a2 2 0 01-2 2H5a2 2 0 01-2-2V5z" stroke="currentColor" stroke-width="1.5"/><path d="M3 5l7 5.5L17 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div><div class="feat-title">Conversion sans friction</div><p class="feat-text">Appel, itinéraire, message direct : la fiche permet une action immédiate depuis Google, sans passer par votre site web.</p></div>
+      <div class="feat-card sr d2"><div class="feat-icon ic-r"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="7" stroke="currentColor" stroke-width="1.5"/><path d="M10 6v4l3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div><div class="feat-title">Données et mesurabilité</div><p class="feat-text">Google fournit des données sur les interactions avec votre fiche : recherches, vues, clics. Des informations concrètes pour piloter votre visibilité locale.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION: APPROCHE -->
+<section class="sec-dark" id="approche">
+  <div class="appr-inner">
+    <div class="sec-label" style="color:rgba(255,255,255,.25)"><span class="sec-dot" style="background:rgba(255,255,255,.12)"></span>Notre approche</div>
+    <h2 class="h2 h2-lt">Ce que nous faisons,<br>concrètement.</h2>
+    <p class="lead lead-lt">Reviscale intervient sur votre présence Google Business Profile avec une méthode structurée et progressive — sans raccourcis ni promesses exagérées.</p>
+    <div class="appr-grid">
+      <div class="step-card sr"><div class="step-n">ÉTAPE 01</div><div class="step-bar sb-b"></div><div class="step-title">Audit complet de votre fiche</div><p class="step-text">Nous analysons chaque élément de votre fiche actuelle : cohérence des informations, catégories, description, photos, attributs et positionnement dans votre zone.</p></div>
+      <div class="step-card sr d1"><div class="step-n">ÉTAPE 02</div><div class="step-bar sb-r"></div><div class="step-title">Structuration et optimisation</div><p class="step-text">Nous structurons votre fiche selon les bonnes pratiques Google : horaires exacts, catégories pertinentes, description optimisée, visuels de qualité.</p></div>
+      <div class="step-card sr"><div class="step-n">ÉTAPE 03</div><div class="step-bar sb-g"></div><div class="step-title">Stratégie de réputation</div><p class="step-text">Nous vous accompagnons pour encourager naturellement les avis clients et vous aidons à y répondre avec soin — ce qui renforce la confiance et influence le classement local.</p></div>
+      <div class="step-card sr d1"><div class="step-n">ÉTAPE 04</div><div class="step-bar sb-y"></div><div class="step-title">Suivi et ajustements continus</div><p class="step-text">La visibilité locale évolue. Nous assurons un suivi régulier et adaptons notre intervention en fonction des données disponibles et des évolutions de l'algorithme local.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION: BÉNÉFICES -->
+<section class="sec" id="benefices">
+  <div class="wrap">
+    <div class="sec-label"><span class="sec-dot"></span>Ce que vous gagnez</div>
+    <h2 class="h2">Des effets durables,<br>pas un effet <em>ponctuel</em>.</h2>
+    <p class="lead">Une présence Google Business Profile bien établie construit une visibilité locale qui travaille pour vous en continu.</p>
+    <div class="ben-layout">
+      <div class="ben-list">
+        <div class="ben-item sr"><div class="ben-chk"><svg width="11" height="11" viewBox="0 0 11 11" fill="none" aria-hidden="true"><path d="M2 5.5l2.5 2.5 4.5-4.5" stroke="#34A853" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="ben-txt"><strong>Une présence cohérente et fiable</strong><p>Vos informations sont exactes et cohérentes sur toutes les surfaces Google, réduisant les incertitudes et renforçant la confiance dès le premier regard.</p></div></div>
+        <div class="ben-item sr d1"><div class="ben-chk"><svg width="11" height="11" viewBox="0 0 11 11" fill="none" aria-hidden="true"><path d="M2 5.5l2.5 2.5 4.5-4.5" stroke="#34A853" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="ben-txt"><strong>Plus d'opportunités entrantes</strong><p>Une fiche structurée et active génère davantage d'appels, de demandes d'itinéraire et de contacts directs — sans effort publicitaire supplémentaire.</p></div></div>
+        <div class="ben-item sr d2"><div class="ben-chk"><svg width="11" height="11" viewBox="0 0 11 11" fill="none" aria-hidden="true"><path d="M2 5.5l2.5 2.5 4.5-4.5" stroke="#34A853" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="ben-txt"><strong>Une première impression soignée</strong><p>Photos pertinentes, description claire, avis gérés avec soin : votre entreprise inspire confiance avant même le premier échange.</p></div></div>
+        <div class="ben-item sr"><div class="ben-chk"><svg width="11" height="11" viewBox="0 0 11 11" fill="none" aria-hidden="true"><path d="M2 5.5l2.5 2.5 4.5-4.5" stroke="#34A853" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="ben-txt"><strong>Une lecture claire de votre performance</strong><p>Les données fournies par Google vous permettent de comprendre ce qui fonctionne et de prendre des décisions éclairées sur votre visibilité.</p></div></div>
+        <div class="ben-item sr d1"><div class="ben-chk"><svg width="11" height="11" viewBox="0 0 11 11" fill="none" aria-hidden="true"><path d="M2 5.5l2.5 2.5 4.5-4.5" stroke="#34A853" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="ben-txt"><strong>Un canal actif en dehors des heures ouvrées</strong><p>Une présence optimisée continue de générer des contacts même quand vous êtes indisponible, créant un flux constant d'opportunités.</p></div></div>
+      </div>
+      <div class="sr d1">
+        <div class="pcard">
+          <div class="pcard-head"><div class="pcard-title">Types d'interactions Google Business</div><div class="pcard-badge">Mesurable</div></div>
+          <div class="pcard-row"><span class="pcard-lbl"><span class="pd pd-b"></span>Appels téléphoniques</span><div class="pcard-track"><div class="pcard-fill pf-b"></div></div><span class="pcard-val">72%</span></div>
+          <div class="pcard-row"><span class="pcard-lbl"><span class="pd pd-r"></span>Demandes d'itinéraire</span><div class="pcard-track"><div class="pcard-fill pf-r"></div></div><span class="pcard-val">58%</span></div>
+          <div class="pcard-row"><span class="pcard-lbl"><span class="pd pd-g"></span>Clics vers le site web</span><div class="pcard-track"><div class="pcard-fill pf-g"></div></div><span class="pcard-val">84%</span></div>
+          <div class="pcard-note">Ces indicateurs illustrent les types d'interactions mesurables sur une fiche Google Business Profile. La répartition réelle varie selon votre secteur et votre zone géographique. Source : tableau de bord Google Business Profile.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION: CONTACT -->
+<section class="sec sec-alt" id="contact">
+  <div class="wrap">
+    <div class="con-grid">
+      <div>
+        <div class="sec-label"><span class="sec-dot"></span>Diagnostic gratuit</div>
+        <h2 class="h2">Parlons de votre<br>visibilité locale.</h2>
+        <p class="lead">Partagez-nous vos informations. Nous analyserons votre situation et vous présenterons un état des lieux honnête de votre présence sur Google — sans engagement.</p>
+        <div class="con-sigs">
+          <div class="con-sig"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="6.5" stroke="currentColor" stroke-width="1.3"/><path d="M8 5v3l2 2" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>Réponse sous 24 heures ouvrées</div>
+          <div class="con-sig"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 8l2.5 2.5 5.5-5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/><circle cx="8" cy="8" r="6.5" stroke="currentColor" stroke-width="1.3"/></svg>Diagnostic sans engagement</div>
+          <div class="con-sig"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="6" r="2.8" stroke="currentColor" stroke-width="1.3"/><path d="M2 15c0-3.31 2.69-6 6-6s6 2.69 6 6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>Accompagnement personnalisé</div>
+          <div class="con-sig"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 4h10v9a1 1 0 01-1 1H4a1 1 0 01-1-1V4zm0 0l5 4 5-4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>contact@reviscale.com</div>
+          <div class="con-sig"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 1.5L2 4.5v4c0 3.5 2.5 6 6 7 3.5-1 6-3.5 6-7v-4L8 1.5z" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>Approche structurée et progressive</div>
+          <div class="con-sig"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="6.5" stroke="currentColor" stroke-width="1.3"/><path d="M5.5 8.5c0-1.38 1.12-2.5 2.5-2.5 .8 0 1.52.38 1.98.97" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/><path d="M10.5 8.5a2.5 2.5 0 01-2.5 2.5c-.8 0-1.52-.38-1.98-.97" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>Entreprise basée en France</div>
+        </div>
+      </div>
+
+      <div class="sr d1">
+        <div class="form-card">
+          <div class="form-card-title">Demander un diagnostic</div>
+          <form id="cForm" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+            <input type="hidden" name="form-name" value="contact" />
+            <input type="hidden" name="subject" value="Nouveau lead Reviscale" />
+            <p style="display:none"><label>Ne pas remplir : <input name="bot-field" tabindex="-1" autocomplete="off" /></label></p>
+            <div class="form-grid">
+              <div class="fg"><label class="fl fl-req" for="fn">Nom</label><input class="fi" type="text" id="fn" name="nom" placeholder="Jean Dupont" required autocomplete="name" /></div>
+              <div class="fg"><label class="fl fl-req" for="fe">Email</label><input class="fi" type="email" id="fe" name="email" placeholder="jean@entreprise.fr" required autocomplete="email" /></div>
+              <div class="fg"><label class="fl" for="ft">Téléphone</label><input class="fi" type="tel" id="ft" name="telephone" placeholder="+33 6 00 00 00 00" autocomplete="tel" /></div>
+              <div class="fg"><label class="fl fl-req" for="fc">Entreprise</label><input class="fi" type="text" id="fc" name="entreprise" placeholder="Nom de votre entreprise" required autocomplete="organization" /></div>
+              <div class="fg fg-full"><label class="fl" for="fv">Ville / Zone géographique</label><input class="fi" type="text" id="fv" name="ville" placeholder="Paris, Lyon, Bordeaux…" autocomplete="address-level2" /></div>
+              <div class="fg fg-full"><label class="fl" for="fm">Votre situation <span style="font-weight:300;text-transform:none;letter-spacing:0">(optionnel)</span></label><textarea class="ft" id="fm" name="message" placeholder="Décrivez brièvement votre activité et vos questions éventuelles…"></textarea></div>
+            </div>
+            <div class="form-foot">
+              <button type="submit" class="btn-sub">Envoyer ma demande <svg width="15" height="15" viewBox="0 0 15 15" fill="none" aria-hidden="true"><path d="M3 7.5h9M9 4l3.5 3.5L9 11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+              <p class="form-legal">Vos données sont utilisées uniquement pour répondre à votre demande. Voir notre <a href="privacy-policy.html">politique de confidentialité</a>.</p>
+            </div>
+          </form>
+          <div class="form-ok" id="formOk">
+            <div class="ok-ring"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true"><path d="M5 14l6 6L23 8" stroke="#34A853" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <div class="ok-h">Demande envoyée</div>
+            <p class="ok-p">Nous vous répondrons sous 24 heures ouvrées pour organiser votre diagnostic personnalisé.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer" role="contentinfo">
+  <div class="footer-top">
+    <div>
+      <a href="index.html" class="footer-logo">Revi<span class="footer-logo-b">scale</span></a>
+      <p class="footer-tag">Accompagnement en visibilité locale<br>via Google Business Profile.<br>Conseil en présence numérique locale.</p>
+      <a href="mailto:contact@reviscale.com" class="footer-email">
+        <svg width="13" height="13" viewBox="0 0 13 13" fill="none" aria-hidden="true"><rect x="1.5" y="3" width="10" height="7" rx="1.5" stroke="currentColor" stroke-width="1.2"/><path d="M1.5 5l5 3 5-3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+        contact@reviscale.com
+      </a>
+    </div>
+    <div>
+      <div class="footer-col-h">Navigation</div>
+      <nav class="footer-links" aria-label="Navigation principale">
+        <a href="#comment">Comment ça marche</a>
+        <a href="#approche">Notre approche</a>
+        <a href="#benefices">Bénéfices</a>
+        <a href="#contact">Diagnostic gratuit</a>
+      </nav>
+    </div>
+    <div>
+      <div class="footer-col-h">Informations légales</div>
+      <nav class="footer-links" aria-label="Liens légaux">
+        <a href="privacy-policy.html">Politique de confidentialité</a>
+        <a href="mentions-legales.html">Mentions légales</a>
+        <a href="terms.html">Conditions d'utilisation</a>
+      </nav>
+    </div>
+  </div>
+  <div class="footer-bot">
+    <div class="footer-copy">© 2026 Reviscale — Tous droits réservés</div>
+    <div class="footer-country">
+      <svg width="13" height="13" viewBox="0 0 13 13" fill="none" aria-hidden="true"><circle cx="6.5" cy="5" r="1.8" stroke="currentColor" stroke-width="1.1"/><path d="M6.5 1C4.3 1 2.5 2.8 2.5 5c0 2.8 4 7.5 4 7.5S10.5 7.8 10.5 5C10.5 2.8 8.7 1 6.5 1z" stroke="currentColor" stroke-width="1.1"/></svg>
+      France
+    </div>
+  </div>
+</footer>
+
+<script>
+/* Nav scroll */
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>10),{passive:true});
+
+/* Mobile menu */
+const burger=document.getElementById('navBurger'),menu=document.getElementById('navMenu');
+burger.addEventListener('click',()=>{const o=menu.classList.toggle('open');burger.setAttribute('aria-expanded',o)});
+document.querySelectorAll('.nav-links a').forEach(a=>a.addEventListener('click',()=>{menu.classList.remove('open');burger.setAttribute('aria-expanded','false')}));
+
+/* Form — Netlify submission */
+document.getElementById('cForm').addEventListener('submit',function(e){
+  e.preventDefault();
+  fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(new FormData(this)).toString()})
+    .then(()=>{this.style.display='none';document.getElementById('formOk').style.display='block'})
+    .catch(()=>{this.style.display='none';document.getElementById('formOk').style.display='block'});
+});
+
+/* Scroll reveal */
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}})},{threshold:.1,rootMargin:'0px 0px -28px 0px'});
+document.querySelectorAll('.sr').forEach(el=>obs.observe(el));
+
+/* Bar animation */
+const bobs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.style.animationPlayState='running';bobs.unobserve(e.target)}})},{threshold:.5});
+document.querySelectorAll('.pcard-fill').forEach(el=>{el.style.animationPlayState='paused';bobs.observe(el)});
+</script>
+</body>
+</html>

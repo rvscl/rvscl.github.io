@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Politique de confidentialité — Reviscale</title>
+  <meta name="description" content="Politique de confidentialité de Reviscale. Collecte, utilisation et protection de vos données personnelles." />
+  <meta name="robots" content="noindex, follow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet" />
+  <style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#0c0c0b;--ink-80:#2a2a28;--ink-50:#5e5e5a;--ink-30:#8c8c88;
+  --ink-10:#e6e6e2;--ink-05:#f2f2ee;--paper:#fff;--paper-warm:#fafaf7;
+  --gb:#4285F4;--nh:68px;
+  --fh:'Fraunces',Georgia,serif;--fb:'DM Sans',system-ui,sans-serif;
+  --rmd:16px;--rsm:9px;--eo:cubic-bezier(.22,1,.36,1)
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--fb);background:var(--paper);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+::selection{background:rgba(66,133,244,.15)}
+
+/* NAV */
+.nav{position:sticky;top:0;z-index:900;height:var(--nh);background:rgba(255,255,255,.9);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-bottom:1px solid rgba(0,0,0,.055)}
+.nav-i{max-width:1200px;margin:0 auto;padding:0 48px;height:100%;display:flex;align-items:center;justify-content:space-between}
+.logo{font-family:var(--fh);font-size:22px;font-weight:600;letter-spacing:-.5px;color:var(--ink);text-decoration:none}
+.logo-b{color:var(--gb)}
+.nav-back{display:inline-flex;align-items:center;gap:7px;font-size:13.5px;font-weight:500;color:var(--ink-50);text-decoration:none;transition:color .2s}
+.nav-back:hover{color:var(--ink)}
+
+/* PAGE */
+.page-head{max-width:760px;margin:0 auto;padding:80px 48px 56px;border-bottom:1px solid var(--ink-10)}
+.breadcrumb{font-size:12px;color:var(--ink-30);margin-bottom:24px;letter-spacing:.03em}
+.breadcrumb a{color:var(--ink-30);text-decoration:none;transition:color .2s}
+.breadcrumb a:hover{color:var(--gb)}
+.breadcrumb span{margin:0 6px}
+h1{font-family:var(--fh);font-size:clamp(34px,4vw,52px);font-weight:400;line-height:1.08;letter-spacing:-1.2px;color:var(--ink);margin-bottom:16px}
+.page-meta{font-size:13px;color:var(--ink-30)}
+.page-body{max-width:760px;margin:0 auto;padding:64px 48px 112px}
+
+/* CONTENT */
+.intro-box{background:var(--paper-warm);border:1px solid var(--ink-10);border-radius:var(--rmd);padding:28px 32px;margin-bottom:56px}
+.intro-box p{font-size:15px;line-height:1.74;color:var(--ink-50);font-weight:300}
+.csec{margin-bottom:56px}
+h2{font-family:var(--fh);font-size:24px;font-weight:400;color:var(--ink);margin-bottom:20px;letter-spacing:-.4px}
+h3{font-size:15px;font-weight:600;color:var(--ink-80);margin:28px 0 10px}
+p{font-size:15px;line-height:1.76;color:var(--ink-50);font-weight:300;margin-bottom:14px}
+p:last-child{margin-bottom:0}
+ul{list-style:none;padding:0;margin:0 0 20px}
+ul li{font-size:15px;line-height:1.74;color:var(--ink-50);font-weight:300;padding:5px 0 5px 20px;position:relative}
+ul li::before{content:'';position:absolute;left:0;top:13px;width:5px;height:5px;border-radius:50%;background:var(--ink-10)}
+strong{color:var(--ink-80);font-weight:600}
+a{color:var(--gb);text-decoration:none}
+a:hover{text-decoration:underline;text-underline-offset:2px}
+.div{height:1px;background:var(--ink-10);margin:48px 0}
+
+/* RIGHTS GRID */
+.rights-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:20px}
+.right-item{padding:18px 20px;background:var(--ink-05);border:1px solid var(--ink-10);border-radius:var(--rsm)}
+.right-title{font-size:13px;font-weight:700;color:var(--ink-80);margin-bottom:4px}
+.right-desc{font-size:12.5px;color:var(--ink-50);line-height:1.55;font-weight:300}
+
+/* FOOTER */
+.footer{border-top:1px solid var(--ink-10);padding:36px 48px}
+.footer-i{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
+.footer-links{display:flex;gap:24px;flex-wrap:wrap}
+.footer-links a{font-size:13px;color:var(--ink-30);text-decoration:none;transition:color .2s}
+.footer-links a:hover{color:var(--ink)}
+.footer-copy{font-size:12.5px;color:var(--ink-30)}
+
+@media(max-width:768px){
+  .nav-i{padding:0 24px}
+  .page-head,.page-body{padding-left:24px;padding-right:24px}
+  .page-head{padding-top:56px;padding-bottom:40px}
+  .footer{padding:28px 24px}
+  .footer-i{flex-direction:column;align-items:flex-start}
+  .rights-grid{grid-template-columns:1fr}
+}
+  </style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-i">
+    <a href="index.html" class="logo">Revi<span class="logo-b">scale</span></a>
+    <a href="index.html" class="nav-back">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M9 2L4 7l5 5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Retour au site
+    </a>
+  </div>
+</header>
+
+<div class="page-head">
+  <div class="breadcrumb"><a href="index.html">Reviscale</a><span>›</span>Politique de confidentialité</div>
+  <h1>Politique de confidentialité</h1>
+  <p class="page-meta">Dernière mise à jour : janvier 2026</p>
+</div>
+
+<div class="page-body">
+
+  <div class="intro-box">
+    <p>Reviscale respecte votre vie privée et s'engage à protéger vos données personnelles. Cette politique explique quelles données nous collectons lorsque vous utilisez le site reviscale.com, pourquoi nous les collectons, et comment nous les utilisons. Nous ne vendons ni ne revendons vos données à des tiers.</p>
+  </div>
+
+  <div class="csec">
+    <h2>1. Responsable du traitement</h2>
+    <p>Le responsable du traitement des données personnelles collectées via le site reviscale.com est Reviscale, entreprise individuelle enregistrée en France, dont l'activité est le conseil en visibilité locale et l'optimisation Google Business Profile.</p>
+    <p>Pour toute question relative à vos données : <a href="mailto:contact@reviscale.com">contact@reviscale.com</a></p>
+  </div>
+
+  <div class="div"></div>
+
+  <div class="csec">
+    <h2>2. Données collectées</h2>
+    <p>Nous collectons uniquement les données que vous nous transmettez volontairement via notre formulaire de contact :</p>
+    <ul>
+      <li>Nom et prénom</li>
+      <li>Adresse email professionnelle</li>
+      <li>Numéro de téléphone (optionnel)</li>
+      <li>Nom de l'entreprise</li>
+      <li>Ville ou zone géographique</li>
+      <li>Contenu du message libre</li>
+    </ul>
+    <p>Nous collectons également automatiquement certaines données techniques de navigation (adresse IP, type de navigateur, pages visitées, durée de visite) à des fins d'analyse d'audience et d'amélioration du site. Ces données sont traitées de manière agrégée et anonymisée autant que possible.</p>
+    <p>Les données sont hébergées sur des serveurs sécurisés fournis par nos prestataires techniques, conformément aux réglementations en vigueur.</p>
+  </div>
+
+  <div class="div"></div>
+
+  <div class="csec">
+    <h2>3. Finalités du traitement</h2>
+    <p>Les données que vous nous transmettez sont utilisées exclusivement pour :</p>
+    <ul>
+      <li>Traiter et répondre à votre demande de diagnostic ou de contact</li>
+      <li>Vous adresser des informations directement liées à votre demande initiale</li>
+      <li>Améliorer l'expérience utilisateur du site</li>
+      <li>Respecter nos obligations légales et réglementaires</li>
+    </ul>
+    <p>Nous ne vous contacterons jamais à des fins commerciales non sollicitées.</p>
+  </div>
+
+  <div class="div"></div>
+
+  <div class="csec">
+    <h2>4. Base légale du traitement</h2>
+    <p>Le traitement de vos données repose sur votre consentement explicite, exprimé au moment où vous soumettez notre formulaire de contact. Vous pouvez retirer ce consentement à tout moment en nous contactant à <a href="mailto:contact@reviscale.com">contact@reviscale.com</a>.</p>
+  </div>
+
+  <div class="div"></div>
+
+  <div class="csec">
+    <h2>5. Durée de conservation</h2>
+    <p>Vos données personnelles sont conservées pendant une durée maximale de <strong>3 ans</strong> à compter de votre dernier contact avec Reviscale, sauf obligation légale de conservation plus longue. À l'issue de cette période, vos données sont définitivement supprimées ou anonymisées.</p>
+  </div>
+
+  <div class="div"></div>
+
+  <div class="csec">
+    <h2>6. Partage des données</h2>
+    <p>Reviscale ne vend, ne loue et ne partage pas vos données personnelles à des tiers à des fins commerciales ou publicitaires.</p>
+    <p>Vos données peuvent être transmises à des prestataires techniques strictement nécessaires au fonctionnement du service (hébergement, formulaire en ligne), sous couvert d'engagements de confidentialité conformes au RGPD. Ces prestataires agissent en qualité de sous-traitants et n'utilisent vos données qu'à des fins d'exécution du service.</p>
+  </div>
+
+  <div class="div"></div>
+
+  <div class="csec">
+    <h2>7. Cookies</h2>
+    <h3>Cookies techniques</h3>
+    <p>Certains cookies sont strictement nécessaires au bon fonctionnement du site. Ils ne collectent aucune donnée personnelle identifiable et ne peuvent pas être désactivés sans altérer le fonctionnement du site.</p>
+    <h3>Cookies d'analyse</h3>
+    <p>Nous pouvons utiliser des outils d'analyse d'audience pour comprendre comment les visiteurs interagissent avec le site. Ces outils peuvent déposer des cookies. Vous pouvez vous y opposer via les paramètres de votre navigateur ou à l'aide d'extensions dédiées.</p>
+    <h3>Gestion de vos préférences</h3>
+    <p>La plupart des navigateurs vous permettent de contrôler les cookies via leurs paramètres. La suppression ou le blocage de certains cookies peut affecter votre expérience de navigation.</p>
+  </div>
+
+  <div class="div"></div>
+
+  <div class="csec">
+    <h2>8. Vos droits (RGPD)</h2>
+    <p>Conformément au Règlement Général sur la Protection des Données (RGPD) et à la loi Informatique et Libertés, vous disposez des droits suivants :</p>
+    <div class="rights-grid">
+      <div class="right-item"><div class="right-title">Droit d'accès</div><div class="right-desc">Obtenir une copie de vos données personnelles que nous détenons.</div></div>
+      <div class="right-item"><div class="right-title">Droit de rectification</div><div class="right-desc">Corriger des données inexactes, incomplètes ou obsolètes.</div></div>
+      <div class="right-item"><div class="right-title">Droit à l'effacement</div><div class="right-desc">Demander la suppression de vos données dans les conditions prévues par la loi.</div></div>
+      <div class="right-item"><div class="right-title">Droit à la limitation</div><div class="right-desc">Restreindre le traitement de vos données dans certains cas.</div></div>
+      <div class="right-item"><div class="right-title">Droit à la portabilité</div><div class="right-desc">Recevoir vos données dans un format structuré et lisible par machine.</div></div>
+      <div class="right-item"><div class="right-title">Droit d'opposition</div><div class="right-desc">Vous opposer au traitement de vos données pour des motifs légitimes.</div></div>
+    </div>
+    <p style="margin-top:20px">Pour exercer l'un de ces droits, contactez-nous à : <a href="mailto:contact@reviscale.com">contact@reviscale.com</a>. Nous répondrons dans un délai de <strong>30 jours</strong> à compter de la réception de votre demande.</p>
+    <p>Vous disposez également du droit d'introduire une réclamation auprès de la CNIL : <a href="https://www.cnil.fr" target="_blank" rel="noopener noreferrer">www.cnil.fr</a></p>
+  </div>
+
+  <div class="div"></div>
+
+  <div class="csec">
+    <h2>9. Sécurité des données</h2>
+    <p>Reviscale met en œuvre des mesures techniques et organisationnelles appropriées pour protéger vos données contre tout accès non autorisé, perte, destruction ou divulgation. Le site est servi exclusivement via une connexion HTTPS chiffrée. Les données sont hébergées sur des serveurs sécurisés fournis par nos prestataires techniques.</p>
+  </div>
+
+  <div class="div"></div>
+
+  <div class="csec">
+    <h2>10. Transferts hors Union européenne</h2>
+    <p>Vos données sont hébergées sur des serveurs situés dans l'Union européenne ou dans des pays offrant un niveau de protection adéquat reconnu par la Commission européenne. Tout transfert éventuel hors UE est encadré par les garanties appropriées prévues par le RGPD.</p>
+  </div>
+
+  <div class="div"></div>
+
+  <div class="csec">
+    <h2>11. Modifications de cette politique</h2>
+    <p>Cette politique de confidentialité peut être mise à jour pour refléter des évolutions légales, réglementaires ou opérationnelles. La date de dernière modification est indiquée en haut de cette page. Nous vous encourageons à la consulter régulièrement.</p>
+  </div>
+
+  <div class="div"></div>
+
+  <div class="csec">
+    <h2>12. Contact</h2>
+    <p>Pour toute question relative à cette politique ou au traitement de vos données personnelles :</p>
+    <p><strong>Email :</strong> <a href="mailto:contact@reviscale.com">contact@reviscale.com</a></p>
+    <p>Nous vous répondrons dans les meilleurs délais et au plus tard sous 30 jours.</p>
+  </div>
+
+</div>
+
+<footer class="footer">
+  <div class="footer-i">
+    <a href="index.html" class="logo">Revi<span class="logo-b">scale</span></a>
+    <nav class="footer-links" aria-label="Liens légaux">
+      <a href="privacy-policy.html">Confidentialité</a>
+      <a href="mentions-legales.html">Mentions légales</a>
+      <a href="terms.html">CGU</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+    <div class="footer-copy">© 2026 Reviscale</div>
+  </div>
+</footer>
+
+</body>
+</html>
